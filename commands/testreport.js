@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 
 module.exports.run = async (bot, message, args) => {
-    mongoose.connect(`mongodb://localhost/Reports`);
+    mongoose.connect(process.env.MONGODB_URI);
     await message.delete()
     let rUser = message.mentions.members.first();
     if(!rUser) return message.reply("No he podido encontrar a ese usuario")
